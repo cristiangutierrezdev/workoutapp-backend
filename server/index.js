@@ -1,16 +1,16 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
-// const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 3000;
-// const { errors } = require('celebrate');
+const { errors } = require('celebrate');
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
-// server.use(fileUpload({
-//   useTempFiles: true,
-//   tempFileDir : '/tmp/',
-// }));
+server.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir : '/tmp/',
+}));
 server.use(cors());
 
 // Start Endpoint
@@ -19,7 +19,7 @@ server.get('/', (req, res) => res.send('Server on!'));
 // Endpoints
 server.use('/api/v1', require('../router'));
 
-// server.use(errors());
+server.use(errors());
 
 // exportar server para poder requerirlo desde otros archivos
 module.exports = { server, PORT };
