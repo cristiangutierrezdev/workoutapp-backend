@@ -23,7 +23,6 @@ const workoutSchema = new mongoose.Schema({
   },
   teacher: {
     type: String,
-    required: true,
   },
   cancellation_time: {
     type: Number,
