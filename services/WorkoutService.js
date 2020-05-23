@@ -1,8 +1,7 @@
-const { Workout } = require('../models/Workout');
+const Workout = require('../models/Workout');
 
 module.exports = {
   create: (body) => {
-    console.log(body)
     const newWorkout = new Workout(body);
     return newWorkout.save();
   },

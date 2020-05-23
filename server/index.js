@@ -2,7 +2,7 @@ const express = require('express');
 const server = express();
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const { errors } = require('celebrate');
 
 server.use(express.urlencoded({ extended: true }));
