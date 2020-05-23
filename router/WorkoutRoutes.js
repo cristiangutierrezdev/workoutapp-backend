@@ -3,7 +3,7 @@ const router = express.Router();
 const { WorkoutController } = require('../controller');
 const { WorkoutValidator } = require('../validators')
 
-router.post('/workout', WorkoutValidator.create, WorkoutController.create);
+router.post('/workout', WorkoutController.create);
 router.get('/workout', WorkoutController.find);
 router.get('/workout/:id', WorkoutController.findById);
 router.patch('/workout/:id', WorkoutController.findByIdAndUpdate);
