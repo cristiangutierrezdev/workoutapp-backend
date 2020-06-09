@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  policy: {
+    type: Boolean,
+    required: true
+  },
   phone_number: Number,
   born_date: String,
   profile_img: String,
