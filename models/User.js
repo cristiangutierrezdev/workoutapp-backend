@@ -17,21 +17,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  phone_number: {
-    type: Number,
-    required: true,
-  },
   password: {
     type: String,
     required: true,
   },
-  born_date: {
-    type: String,
-    required: true,
-  },
-  profile_img: {
-    type: String,
-  },
+  phone_number: Number,
+  born_date: String,
+  profile_img: String,
   is_member: {
     type: Boolean,
     default: false,
