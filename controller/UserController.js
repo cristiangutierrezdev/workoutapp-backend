@@ -2,6 +2,15 @@ const { UserService } = require('../services');
 const utils = require('../utils');
 
 module.exports = {
+  me: async(req, res) => {
+   const { id } = req.decoded.data;
+    try {
+      const user = await UserService.findById(id);
+      res.status(200).send(user);
+    } catch (err) {
+      res.status(404).send({ message: 'User not found', err });
+    }
+  },
   create: async (req, res) => {
     try {
       const user = await UserService.create(req.body);

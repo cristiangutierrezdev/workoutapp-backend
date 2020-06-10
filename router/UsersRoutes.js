@@ -3,6 +3,7 @@ const router = express.Router();
 const { UserController } = require('../controller');
 const { UsersValidator } = require('../validators')
 
+router.get('/me', UserController.me);
 router.post('/users', UsersValidator.create, UserController.create);
 router.get('/users', UserController.find);
 router.get('/users/all', UserController.findAll);
