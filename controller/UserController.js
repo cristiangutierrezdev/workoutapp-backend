@@ -77,12 +77,12 @@ module.exports = {
       if (!user) res.status(404).send({ message: 'User not found' });
       const isMatch = UserService.comparePasswords(password, user.password);
       if (!isMatch) res.status(400).send({ message: 'Invalid credentials' });
-      const token = utils.createToken({
+      const accessToken = utils.createToken({
         id: user._id,
         name: user.first_name,
         email: user.email,
       });
-      res.status(200).send({ message: 'step inside, brother', token });
+      res.status(200).send({ user, accessToken });
     } catch (error) {
       console.log(error);
       res.status(400).send({ message: 'Error on login', error });
