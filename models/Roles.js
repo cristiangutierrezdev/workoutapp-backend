@@ -9,7 +9,7 @@ const rolesSchema = new Schema({
       type: Boolean,
       default: true,
     },
-});
+}, {timestamps: true});
 
 const Roles = mongoose.model('Roles', rolesSchema);
 

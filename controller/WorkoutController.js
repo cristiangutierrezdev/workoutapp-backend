@@ -11,7 +11,23 @@ module.exports = {
   },
   find: async (req, res) => {
     try {
-      const workouts = await WorkoutService.find();
+      const workouts = await WorkoutService.find({is_active: true});
+      res.status(200).send(workouts)
+    } catch (err) {
+      res.status(404).send({ message: 'Workouts not found', err });
+    }
+  },
+  findAll: async (req, res) => {
+    try {
+      const workouts = await WorkoutService.find({is_active: true}).populate("teacher");
+      res.status(200).send(workouts)
+    } catch (err) {
+      res.status(404).send({ message: 'Workouts not found', err });
+    }
+  },
+  findWithTeacher: async (req, res) => {
+    try {
+      const workouts = await WorkoutService.find({is_active: true}).populate("teacher");
       res.status(200).send(workouts)
     } catch (err) {
       res.status(404).send({ message: 'Workouts not found', err });
@@ -21,6 +37,15 @@ module.exports = {
     const { id } = req.params;
     try {
       const workout = await WorkoutService.findById(id);
+      res.status(200).send(workout)
+    } catch (err) {
+      res.status(404).send({ message: 'Workout not found', err });
+    }
+  },
+  findByIdWithTeacher: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const workout = await WorkoutService.findById(id).populate("teacher");
       res.status(200).send(workout)
     } catch (err) {
       res.status(404).send({ message: 'Workout not found', err });

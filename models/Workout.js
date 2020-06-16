@@ -37,7 +37,7 @@ const workoutSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-});
+}, {timestamps: true});
 
 const Workout = mongoose.model('Workout', workoutSchema);
 
