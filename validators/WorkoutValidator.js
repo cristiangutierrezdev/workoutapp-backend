@@ -10,6 +10,7 @@ module.exports = {
       hour: Joi.string().required(),
       cancellation_time: Joi.number().required(),
       image: Joi.string().required(),
+      teacher: Joi.string().required()
     }),
   }),
   addWorkoutToUser: celebrate({

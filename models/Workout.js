@@ -21,7 +21,9 @@ const workoutSchema = new mongoose.Schema({
     required: true,
   },
   teacher: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   cancellation_time: {
     type: Number,

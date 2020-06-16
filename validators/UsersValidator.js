@@ -6,9 +6,7 @@ module.exports = {
       first_name: Joi.string().required(),
       last_name: Joi.string().required(),
       email: Joi.string().email().required(),
-      phone_number: Joi.number().required(),
-      password: Joi.string(),
-      born_date: Joi.string().required(),
+      password: Joi.string().required()
     }),
   }),
 };
